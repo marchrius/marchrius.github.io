@@ -4,11 +4,11 @@
 .gist-cache
 .pygments-cache
 _deploy
-public
+# public # Removed to work with heroku
 sass.old
 source.old
 source/_stash
 source/stylesheets/screen.css
 vendor
 node_modules
-Gemfile.lock
+# Gemfile.lock # Removed to work with heroku
