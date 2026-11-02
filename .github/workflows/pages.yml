@@ -27,8 +27,21 @@ jobs:
           ruby-version: '3.3'
           bundler-cache: true
 
+      - name: Compile stylesheets
+        run: bundle exec compass compile --css-dir source/stylesheets
+
       - name: Build site
-        run: bundle exec rake generate
+        run: bundle exec jekyll build
+
+      - name: Publish static repository assets
+        run: cp -R cydia public/cydia
+
+      - name: Validate generated site
+        run: |
+          test -s public/index.html
+          test -s public/stylesheets/screen.css
+          test -s public/cydia/index.html
+          test -s public/cydia/depictions/css/main.css
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

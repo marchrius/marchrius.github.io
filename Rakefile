@@ -56,8 +56,8 @@ desc "Generate jekyll site"
 task :generate do
   raise "### You haven't set anything up yet. First run `rake install` to set up an Octopress theme." unless File.directory?(source_dir)
   puts "## Generating Site with Jekyll"
-  system "compass compile --css-dir #{source_dir}/stylesheets"
-  system "jekyll build"
+  abort "### Compass failed: stylesheets were not generated." unless system "bundle exec compass compile --css-dir #{source_dir}/stylesheets"
+  abort "### Jekyll failed: site was not generated." unless system "bundle exec jekyll build"
 end
 
 desc "Watch the site and regenerate when it changes"
