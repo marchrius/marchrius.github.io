@@ -64,7 +64,6 @@
     document.getElementById('version').textContent = 'Versione ' + version;
     document.getElementById('package-id').textContent = bundleId;
     document.getElementById('package-version').textContent = version;
-    document.getElementById('install-button').href = 'cydia://package/' + encodeURIComponent(bundleId);
 
     var minimum = firstText(info, 'miniOS');
     var maximum = firstText(info, 'maxiOS');
