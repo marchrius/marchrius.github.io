@@ -18,6 +18,7 @@ deploy_branch  = "master"
 
 public_dir      = "public"    # compiled site directory
 source_dir      = "source"    # source file directory
+compass_command = "bundle exec ruby -r./script/ruby-compat.rb -S compass"
 blog_index_dir  = 'source'    # directory for your blog's index page (if you put your index in source/blog/index.html, set this to 'source/blog')
 deploy_dir      = "_deploy"   # deploy directory (for Github pages deployment)
 stash_dir       = "_stash"    # directory to stash posts for speedy generation
@@ -56,7 +57,7 @@ desc "Generate jekyll site"
 task :generate do
   raise "### You haven't set anything up yet. First run `rake install` to set up an Octopress theme." unless File.directory?(source_dir)
   puts "## Generating Site with Jekyll"
-  abort "### Compass failed: stylesheets were not generated." unless system "bundle exec compass compile --css-dir #{source_dir}/stylesheets"
+  abort "### Compass failed: stylesheets were not generated." unless system "#{compass_command} compile --css-dir #{source_dir}/stylesheets"
   abort "### Jekyll failed: site was not generated." unless system "bundle exec jekyll build"
 end
 
@@ -64,9 +65,9 @@ desc "Watch the site and regenerate when it changes"
 task :watch do
   raise "### You haven't set anything up yet. First run `rake install` to set up an Octopress theme." unless File.directory?(source_dir)
   puts "Starting to watch source with Jekyll and Compass."
-  system "compass compile --css-dir #{source_dir}/stylesheets" unless File.exist?("#{source_dir}/stylesheets/screen.css")
+  system "#{compass_command} compile --css-dir #{source_dir}/stylesheets" unless File.exist?("#{source_dir}/stylesheets/screen.css")
   jekyllPid = Process.spawn({"OCTOPRESS_ENV"=>"preview"}, "jekyll build --watch")
-  compassPid = Process.spawn("compass watch")
+  compassPid = Process.spawn("#{compass_command} watch")
 
   trap("INT") {
     [jekyllPid, compassPid].each { |pid| Process.kill(9, pid) rescue Errno::ESRCH }
@@ -80,9 +81,9 @@ desc "preview the site in a web browser"
 task :preview do
   raise "### You haven't set anything up yet. First run `rake install` to set up an Octopress theme." unless File.directory?(source_dir)
   puts "Starting to watch source with Jekyll and Compass. Starting Rack on port #{server_port}"
-  system "compass compile --css-dir #{source_dir}/stylesheets" unless File.exist?("#{source_dir}/stylesheets/screen.css")
+  system "#{compass_command} compile --css-dir #{source_dir}/stylesheets" unless File.exist?("#{source_dir}/stylesheets/screen.css")
   jekyllPid = Process.spawn({"OCTOPRESS_ENV"=>"preview"}, "jekyll build --watch")
-  compassPid = Process.spawn("compass watch")
+  compassPid = Process.spawn("#{compass_command} watch")
   rackupPid = Process.spawn("rackup --port #{server_port}")
 
   trap("INT") {

@@ -28,7 +28,7 @@ jobs:
           bundler-cache: true
 
       - name: Compile stylesheets
-        run: bundle exec compass compile --css-dir source/stylesheets
+        run: bundle exec ruby -r./script/ruby-compat.rb -S compass compile --css-dir source/stylesheets
 
       - name: Build site
         run: bundle exec jekyll build
