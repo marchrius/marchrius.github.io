@@ -9,8 +9,8 @@
 </head>
 <body>
   <main class="page">
-    <section class="package-hero">
-      <div class="package-icon" aria-hidden="true">C</div>
+    <section class="package-summary">
+      <div class="package-icon" aria-hidden="true">&gt;_</div>
       <div class="package-heading">
         <h1 id="packageTitle">Dettagli pacchetto</h1>
         <p id="bundleId" class="muted"></p>
@@ -18,33 +18,41 @@
       </div>
     </section>
 
-    <p id="load-error" class="group error" hidden>Impossibile caricare i dettagli del pacchetto.</p>
+    <p id="load-error" class="panel error" hidden>Impossibile caricare i dettagli del pacchetto.</p>
 
-    <section class="group">
+    <section class="panel action-list">
+      <div class="info-row"><span class="row-icon settings-icon">⚙</span><strong>Impostazioni pacchetto</strong><span class="disclosure">›</span></div>
+      <div class="info-row"><span class="row-icon author-icon">↗</span><strong>Autore</strong><span class="row-value">Marchrius</span><span class="disclosure">›</span></div>
+    </section>
+
+    <section class="package-section">
+      <h2>Dettagli pacchetto</h2>
+      <div class="panel info-list">
+        <div class="info-row"><span class="row-icon id-icon">□</span><strong>ID</strong><span id="package-id" class="row-value"></span></div>
+        <div class="info-row"><span class="row-icon section-icon">▰</span><strong>Sezione</strong><span class="row-value">Networking</span></div>
+        <div class="info-row"><span class="row-icon version-icon">◉</span><strong>Versione</strong><span id="package-version" class="row-value"></span></div>
+        <div class="info-row"><span class="row-icon compatibility-icon">◉</span><strong>Compatibilità</strong><span id="compatibility" class="row-value"></span></div>
+        <div class="info-row"><span class="row-icon dependency-icon">↗</span><strong>Dipendenze</strong><span id="dependency-summary" class="row-value"></span><span class="disclosure">›</span></div>
+      </div>
+    </section>
+
+    <section class="package-section">
       <h2>Descrizione</h2>
-      <ul id="description" class="description-list"></ul>
+      <div class="panel description-list" id="description"></div>
     </section>
 
-    <section class="group">
-      <h2>Informazioni</h2>
-      <dl class="details-list">
-        <div><dt>Compatibilità</dt><dd id="compatibility"></dd></div>
-        <div><dt>Identificativo</dt><dd id="package-id"></dd></div>
-        <div><dt>Versione</dt><dd id="package-version"></dd></div>
-      </dl>
+    <section class="package-section">
+      <h2>Registro modifiche</h2>
+      <div class="panel" id="changeLog"></div>
     </section>
 
-    <section class="group">
-      <h2>Dipendenze</h2>
-      <ul id="dependencies" class="description-list"></ul>
+    <section class="package-section">
+      <h2>Informazioni sorgente</h2>
+      <div class="panel source-card">
+        <div class="source-title"><span class="source-icon">M</span><strong>Marchrius</strong></div>
+        <p>Pacchetti e strumenti per dispositivi iOS legacy.</p>
+      </div>
     </section>
-
-    <section class="group">
-      <h2>Modifiche recenti</h2>
-      <div id="changeLog"></div>
-    </section>
-
-    <p class="footer-note">Marchrius Cydia Repository</p>
   </main>
 </body>
 </html>

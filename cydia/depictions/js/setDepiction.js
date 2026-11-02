@@ -20,7 +20,7 @@
     var nodes = parent.getElementsByTagName(tag);
     var i;
     for (i = 0; i < nodes.length; i += 1) {
-      var item = document.createElement('li');
+      var item = document.createElement('p');
       item.textContent = (nodes[i].textContent || nodes[i].text || '').replace(/^\s+|\s+$/g, '');
       list.appendChild(item);
     }
@@ -70,7 +70,12 @@
     document.getElementById('compatibility').textContent = minimum + (maximum ? ' – ' + maximum : ' e successive');
 
     addTextItems(info, 'description', document.getElementById('description'));
-    addTextItems(info, 'dependency', document.getElementById('dependencies'));
+    var dependencies = info.getElementsByTagName('dependency');
+    var dependencyNames = [];
+    for (var dependencyIndex = 0; dependencyIndex < dependencies.length; dependencyIndex += 1) {
+      dependencyNames.push((dependencies[dependencyIndex].textContent || '').replace(/^\s+|\s+$/g, ''));
+    }
+    document.getElementById('dependency-summary').textContent = dependencyNames.length ? dependencyNames.join(', ') : 'Nessuna';
 
     var changes = info.getElementsByTagName('change');
     var log = document.getElementById('changeLog');
