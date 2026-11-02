@@ -55,10 +55,16 @@
       return;
     }
 
-    document.title = firstText(info, 'name') + ' · Marchrius Cydia Repository';
-    document.getElementById('packageTitle').textContent = firstText(info, 'name');
-    document.getElementById('bundleId').textContent = firstText(info, 'bundleId');
-    document.getElementById('version').textContent = 'Versione ' + firstText(info, 'version');
+    var name = firstText(info, 'name');
+    var bundleId = firstText(info, 'bundleId');
+    var version = firstText(info, 'version');
+    document.title = name + ' · Marchrius Cydia Repository';
+    document.getElementById('packageTitle').textContent = name;
+    document.getElementById('bundleId').textContent = bundleId;
+    document.getElementById('version').textContent = 'Versione ' + version;
+    document.getElementById('package-id').textContent = bundleId;
+    document.getElementById('package-version').textContent = version;
+    document.getElementById('install-button').href = 'cydia://package/' + encodeURIComponent(bundleId);
 
     var minimum = firstText(info, 'miniOS');
     var maximum = firstText(info, 'maxiOS');

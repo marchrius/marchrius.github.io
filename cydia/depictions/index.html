@@ -1,37 +1,56 @@
 <!doctype html>
-<html lang="en">
+<html lang="it">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Package details · Marchrius Cydia Repository</title>
+  <title>Dettagli pacchetto · Marchrius Cydia Repository</title>
   <link rel="stylesheet" href="css/main.css">
   <script defer src="js/setDepiction.js"></script>
 </head>
 <body>
   <main class="page">
-    <p><a id="repo-home" href="../">Marchrius Cydia Repository</a></p>
-    <section class="card package-header">
-      <h1 id="packageTitle">Package details</h1>
-      <p id="bundleId" class="muted"></p>
-      <p id="version" class="muted"></p>
+    <header class="navigation-bar">
+      <a id="repo-home" class="back-button" href="../">Repo</a>
+      <span>Dettagli</span>
+    </header>
+
+    <section class="package-hero">
+      <div class="package-icon" aria-hidden="true">C</div>
+      <div class="package-heading">
+        <h1 id="packageTitle">Dettagli pacchetto</h1>
+        <p id="bundleId" class="muted"></p>
+        <p id="version" class="muted"></p>
+      </div>
+      <a id="install-button" class="install-button" href="#">Installa</a>
     </section>
-    <p id="load-error" class="card error" hidden>Impossibile caricare i dettagli del pacchetto.</p>
-    <section class="card">
-      <h2>Compatibilità</h2>
-      <p id="compatibility"></p>
-    </section>
-    <section class="card">
+
+    <p id="load-error" class="group error" hidden>Impossibile caricare i dettagli del pacchetto.</p>
+
+    <section class="group">
       <h2>Descrizione</h2>
-      <ul id="description"></ul>
+      <ul id="description" class="description-list"></ul>
     </section>
-    <section class="card">
+
+    <section class="group">
+      <h2>Informazioni</h2>
+      <dl class="details-list">
+        <div><dt>Compatibilità</dt><dd id="compatibility"></dd></div>
+        <div><dt>Identificativo</dt><dd id="package-id"></dd></div>
+        <div><dt>Versione</dt><dd id="package-version"></dd></div>
+      </dl>
+    </section>
+
+    <section class="group">
       <h2>Dipendenze</h2>
-      <ul id="dependencies"></ul>
+      <ul id="dependencies" class="description-list"></ul>
     </section>
-    <section class="card">
-      <h2>Registro modifiche</h2>
+
+    <section class="group">
+      <h2>Modifiche recenti</h2>
       <div id="changeLog"></div>
     </section>
+
+    <p class="footer-note">Marchrius Cydia Repository</p>
   </main>
 </body>
 </html>
