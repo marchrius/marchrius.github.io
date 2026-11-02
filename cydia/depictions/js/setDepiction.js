@@ -1,4 +1,12 @@
 (function () {
+  function loadedInCydia() {
+    return /Cydia/i.test(window.navigator.userAgent || '');
+  }
+
+  if (loadedInCydia()) {
+    document.documentElement.className += ' cydia-client';
+  }
+
   function queryValue(name) {
     var query = window.location.search.substring(1).split('&');
     var i;
