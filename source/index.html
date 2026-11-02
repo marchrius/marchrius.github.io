@@ -21,9 +21,11 @@ layout: default
   </div>
 </div>
 <aside class="sidebar">
-  {% if site.blog_index_asides.size %}
-    {% include_array blog_index_asides %}
-  {% else %}
-    {% include_array default_asides %}
+  {% assign asides = site.blog_index_asides %}
+  {% if asides.size == 0 %}
+    {% assign asides = site.default_asides %}
   {% endif %}
+  {% for aside in asides %}
+    {% include {{ aside }} %}
+  {% endfor %}
 </aside>
