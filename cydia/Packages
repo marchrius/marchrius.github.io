@@ -1,0 +1,14 @@
+Package: openssh
+Version: 10.6p1
+Priority: optional
+Section: Networking
+Maintainer: Marchrius
+Depends: openssl
+Architecture: iphoneos-arm
+Filename: ./debs/openssh_10.6p1_iphoneos-arm.deb
+Size: 17136874
+MD5sum: 38b183d51eec63bc56011a02623d5ae5
+Description: OpenSSH 10 for iOS 5
+Name: OpenSSH
+Depiction: https://marchrius.github.io/cydia/depictions/?p=openssh
+

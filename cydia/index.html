@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Marchrius Cydia repository for legacy iOS devices.">
+  <title>Marchrius Cydia Repository</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { margin: 0; padding: 2rem 1rem; background: #f2f3f7; color: #20232a; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif; }
+    main { max-width: 42rem; margin: 5vh auto; padding: 2rem; background: white; border-radius: 1rem; box-shadow: 0 0.5rem 2rem #17203318; }
+    h1 { margin-top: 0; font-size: 1.8rem; }
+    a { color: #1769aa; }
+    .actions { display: flex; flex-wrap: wrap; gap: .75rem; margin: 1.5rem 0; }
+    .button { display: inline-block; padding: .7rem 1rem; border-radius: .55rem; background: #1769aa; color: white; text-decoration: none; font-weight: 600; }
+    .button.secondary { background: #e8eef5; color: #17466b; }
+    code { overflow-wrap: anywhere; }
+    @media (prefers-color-scheme: dark) { body { background: #17191e; color: #eee; } main { background: #24272e; } .button.secondary { background: #343b45; color: #d9e9f7; } }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Marchrius Cydia Repository</h1>
+    <p>Pacchetti per dispositivi iOS jailbroken, inclusa la build OpenSSH 10.6p1 per iOS 5 e ARMv7.</p>
+    <div class="actions">
+      <a class="button" id="add-source" href="cydia://url/https://cydia.saurik.com/api/share">Aggiungi la repo a Cydia</a>
+      <a class="button secondary" id="browse-index" href="Packages.bz2">Indice pacchetti</a>
+    </div>
+    <p>URL sorgente: <code id="source-url"></code></p>
+    <p><a href="depictions/?p=openssh">Dettagli di OpenSSH</a></p>
+  </main>
+  <script>
+    (function () {
+      var path = window.location.pathname;
+      if (/index\.html$/.test(path)) path = path.substring(0, path.lastIndexOf('/') + 1);
+      if (path.charAt(path.length - 1) !== '/') path += '/';
+      var source = window.location.protocol + '//' + window.location.host + path;
+      document.getElementById('add-source').href = 'cydia://url/https://cydia.saurik.com/api/share#?source=' + encodeURIComponent(source);
+      document.getElementById('source-url').textContent = source;
+      document.getElementById('browse-index').href = source + 'Packages.bz2';
+    }());
+  </script>
+</body>
+</html>

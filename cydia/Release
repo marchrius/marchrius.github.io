@@ -1,0 +1,17 @@
+Origin: Marchrius
+Label: Marchrius Cydia Repository
+Suite: stable
+Version: 1.0
+Codename: cydia-ios
+Architectures: iphoneos-arm
+Components: main
+Description: OpenSSH and packages for legacy iOS devices
+Date: Mon, 02 Nov 2026 19:06:06 +0000
+MD5Sum:
+ 2e96ebf9cbba93d6ff61ed0e1a702b3e 359 Packages
+ bd2e7fa45e94b063b2bc4085dc571239 266 Packages.gz
+ ce2e81024bcdc4b5117039e38f8d8283 301 Packages.bz2
+SHA256:
+ f6ce002f7af68ad54f89eadb93e9e39311345df1c2718c840155c903dc2aa336 359 Packages
+ 8f3a2c173f383b470a6e757fd6f692ddbe6f656ed7ce61f05d3b0710a631c1d1 266 Packages.gz
+ b14ecd67c95c2cd70e1c7554c9f95d07b13cbb5cc24edf5225170a78959c2256 301 Packages.bz2

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<packageInfo>
+  <bundleId>openssh</bundleId>
+  <name>OpenSSH</name>
+  <version>10.6p1</version>
+  <descriptions>
+    <description>OpenSSH 10.6p1 for iPad 2 and other ARMv7 devices running iOS 5.</description>
+    <description>Provides SSH client and server tools. The server supports password authentication and starts through the Cydia-compatible launch daemon.</description>
+  </descriptions>
+  <compatibility>
+    <miniOS>5.0</miniOS>
+    <maxiOS>5.1.1</maxiOS>
+  </compatibility>
+  <dependencies>
+    <dependency>openssl</dependency>
+  </dependencies>
+  <changelog>
+    <change>
+      <changeVersion>10.6p1</changeVersion>
+      <changeDescription>Initial Marchrius build for iOS 5 and ARMv7.</changeDescription>
+      <changeDescription>Uses OpenSSL 3.5.8 and the resource-limit sandbox compatible with iOS 5.</changeDescription>
+    </change>
+  </changelog>
+</packageInfo>
